@@ -1,0 +1,30 @@
+/* 自訂捲軸樣式 (客製化輕量質感) */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* 按鈕微互動 hover */
+.horizon-btn {
+    user-select: none;
+}
+
+/* 圖表繪製容器修正 */
+.js-plotly-plot .plotly .modebar {
+    top: 0px !important;
+    right: 10px !important;
+}

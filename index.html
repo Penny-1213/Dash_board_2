@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIMA Quantitative Asset Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Plotly.js CDN -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen font-sans antialiased">
+
+    <!-- 1. Header (實驗室白藍綠配色) -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <!-- FIMA Logo 區塊 (白底 + 藍綠漸層) -->
+                <div class="flex items-center justify-center font-extrabold text-xl px-3.5 py-1.5 rounded-lg shadow-sm border border-emerald-100 bg-gradient-to-r from-blue-600 to-emerald-500 text-white">
+                    FIMA
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold text-slate-900 tracking-tight">Quantitative Asset Analytics Dashboard</h1>
+                    <p class="text-xs text-slate-500" id="study-period">Study Period: Loading...</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-xs bg-emerald-50 text-emerald-700 font-medium px-3 py-1.5 rounded-full border border-emerald-200 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Live Dataset
+                </span>
+                <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full border border-slate-200" id="data-source">
+                    Source: CSV
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-6 space-y-8">
+
+        <!-- 2. 順序一：每家公司的預測值區塊 (Forecast Overview) -->
+        <section class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4 border-b border-slate-100">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="p-2 bg-blue-50 text-blue-600 rounded-lg"><i class="fa-solid fa-chart-line"></i></span>
+                        <h2 class="text-xl font-bold text-slate-900">1. Stock Returns Prediction Overview</h2>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-1">Multi-horizon Ridge Regression predictions for 50 portfolio assets</p>
+                </div>
+
+                <!-- 天數 Horizon 切換按鈕 -->
+                <div class="flex flex-wrap gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200" id="horizon-btns">
+                    <button onclick="changeHorizon('1D')" class="horizon-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition bg-blue-600 text-white shadow-sm" data-h="1D">1D</button>
+                    <button onclick="changeHorizon('5D')" class="horizon-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-600 hover:text-blue-600" data-h="5D">5D</button>
+                    <button onclick="changeHorizon('10D')" class="horizon-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-600 hover:text-blue-600" data-h="10D">10D</button>
+                    <button onclick="changeHorizon('20D')" class="horizon-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-600 hover:text-blue-600" data-h="20D">20D</button>
+                    <button onclick="changeHorizon('1Q')" class="horizon-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-600 hover:text-blue-600" data-h="1Q">1Q</button>
+                    <button onclick="changeHorizon('0.5Y')" class="horizon-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-600 hover:text-blue-600" data-h="0.5Y">0.5Y</button>
+                    <button onclick="changeHorizon('1Y')" class="horizon-btn px-3 py-1.5 rounded-lg text-xs font-semibold transition text-slate-600 hover:text-blue-600" data-h="1Y">1Y</button>
+                </div>
+            </div>
+
+            <!-- Top Movers Summary KPI -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-gradient-to-br from-emerald-50 to-white border border-emerald-200 rounded-xl p-4">
+                    <p class="text-xs font-medium text-emerald-800">Top Predicted Growth (<span class="current-h-label">1D</span>)</p>
+                    <h3 class="text-xl font-extrabold text-emerald-600 mt-1" id="top-gainer-val">--</h3>
+                    <p class="text-xs text-slate-500 mt-0.5" id="top-gainer-name">--</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-xl p-4">
+                    <p class="text-xs font-medium text-blue-800">Average Predicted Return</p>
+                    <h3 class="text-xl font-extrabold text-blue-600 mt-1" id="avg-return-val">--</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Across all 50 stocks</p>
+                </div>
+                <div class="bg-gradient-to-br from-slate-50 to-white border border-slate-200 rounded-xl p-4">
+                    <p class="text-xs font-medium text-slate-600">Positive Outlook Ratio</p>
+                    <h3 class="text-xl font-extrabold text-slate-800 mt-1" id="positive-ratio-val">--</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Stocks with >0% predicted return</p>
+                </div>
+            </div>
+
+            <!-- 50家公司預測速覽網格 (Cards Grid) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-2.5 pt-2 max-h-72 overflow-y-auto p-1 custom-scrollbar" id="prediction-grid">
+                <!-- JS 自動填入 50 家公司的簡化預測卡片 -->
+            </div>
+        </section>
+
+        <!-- 3. 順序二：Markowitz Return-Risk & PCA 產業分析區塊 -->
+        <section class="space-y-4">
+            <div class="flex items-center gap-2">
+                <span class="p-2 bg-emerald-50 text-emerald-600 rounded-lg"><i class="fa-solid fa-diagram-project"></i></span>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">2. Portfolio Positioning & Industry Classification</h2>
+                    <p class="text-xs text-slate-500">Markowitz risk-return tradeoff and PCA feature clustering color-coded by Industry</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Markowitz Return-Risk Scatter Chart -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-sm font-bold text-slate-800">Markowitz Return-Risk Plan</h3>
+                        <span class="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded">Risk vs Return</span>
+                    </div>
+                    <div id="markowitz-chart" class="w-full h-80"></div>
+                </div>
+
+                <!-- PCA Scatter Chart -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-sm font-bold text-slate-800">PCA Feature Space (PC1 vs PC2)</h3>
+                        <span class="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded">Dimensionality Reduction</span>
+                    </div>
+                    <div id="pca-chart" class="w-full h-80"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 順序三：每家公司的具體指標列表 (Detailed Financial Metrics Table) -->
+        <section class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+            <div class="flex items-center gap-2 border-b border-slate-100 pb-4">
+                <span class="p-2 bg-slate-100 text-slate-700 rounded-lg"><i class="fa-solid fa-table-list"></i></span>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">3. Comprehensive Company Metrics</h2>
+                    <p class="text-xs text-slate-500">Full detailed financial metrics, tickers, market capitalization, and horizon return matrix</p>
+                </div>
+            </div>
+
+            <!-- 表格搜尋與篩選列 -->
+            <div class="flex justify-between items-center gap-4">
+                <div class="relative w-64">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+                    <input type="text" id="table-search" oninput="filterTable()" placeholder="Search ticker or name..." class="w-full pl-8 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+
+            <!-- 表格區塊 -->
+            <div class="overflow-x-auto rounded-xl border border-slate-200">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50 border-b border-slate-200 text-slate-500 text-xs uppercase tracking-wider">
+                            <th class="p-3">Company Name</th>
+                            <th class="p-3">Ticker</th>
+                            <th class="p-3">Industry</th>
+                            <th class="p-3">Market Cap</th>
+                            <th class="p-3 text-right">Exp. Return</th>
+                            <th class="p-3 text-right">Volatility</th>
+                            <th class="p-3 text-right">Pred. Return (<span class="current-h-label">1D</span>)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="company-table-body" class="divide-y divide-slate-100 text-sm">
+                        <!-- JS 渲染內容 -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-400">
+        <p>FIMA Laboratory &copy; 2026 Quantitative Finance Project. All rights reserved.</p>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>
