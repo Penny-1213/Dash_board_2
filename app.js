@@ -74,11 +74,19 @@ function updatePredictionOverview() {
         const isPositive = val >= 0;
         const colorClass = isPositive ? 'text-emerald-600 bg-emerald-50/60 border-emerald-200' : 'text-rose-600 bg-rose-50/60 border-rose-200';
 
-        card.className = `p-2 rounded-xl border text-center transition hover:shadow-md ${colorClass}`;
+        card.className = `p-2 rounded-xl border text-center transition hover:shadow-md cursor-pointer ${colorClass}`;
+
         card.innerHTML = `
-            <p class="text-[10px] font-bold text-slate-500 truncate" title="${comp.name}">${comp.name}</p>
-            <p class="text-xs font-mono font-extrabold mt-0.5">${isPositive ? '+' : ''}${val}%</p>
+            <p class="text-[10px] font-bold text-slate-500 truncate" title="${comp.name}">
+                ${comp.name}
+            </p>
+            <p class="text-xs font-mono font-extrabold mt-0.5">
+                ${isPositive ? '+' : ''}${val}%
+            </p>
         `;
+        
+        card.onclick = () => scrollToCompany(comp.ticker);
+        
         grid.appendChild(card);
     });
 
@@ -193,6 +201,7 @@ function renderTable() {
         const badgeColor = isPositive ? 'text-emerald-700 bg-emerald-50 border-emerald-200' : 'text-rose-700 bg-rose-50 border-rose-200';
 
         const tr = document.createElement('tr');
+        tr.id = `company-${comp.ticker}`;
         tr.className = "hover:bg-slate-50/80 transition company-row";
         tr.dataset.search = `${comp.name} ${comp.ticker} ${comp.industry}`.toLowerCase();
 
@@ -228,4 +237,25 @@ function filterTable() {
         const text = row.dataset.search;
         row.style.display = text.includes(query) ? '' : 'none';
     });
+}
+
+// 點擊上方公司卡片後，跳轉到下方對應公司的詳細資料
+function scrollToCompany(ticker) {
+    const row = document.getElementById(`company-${ticker}`);
+
+    if (!row) return;
+
+    // 平滑捲動到該公司
+    row.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+    });
+
+    // 加上醒目效果
+    row.classList.add('company-highlight');
+
+    // 1.5 秒後移除醒目效果
+    setTimeout(() => {
+        row.classList.remove('company-highlight');
+    }, 1500);
 }
