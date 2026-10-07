@@ -28,3 +28,9 @@
     top: 0px !important;
     right: 10px !important;
 }
+
+.company-highlight {
+    background-color: #eff6ff !important;
+    box-shadow: inset 4px 0 0 #2563eb;
+    transition: all 0.3s ease;
+}
