@@ -1,0 +1,1287 @@
+{
+  "study_period": "2019-01-02 to 2026-06-18",
+  "data_source": "Stock_combined.csv",
+  "universe_definition": "Top 50 companies by latest market capitalization",
+  "model": {
+    "name": "Ridge Regression",
+    "alpha": 1.0,
+    "features": [
+      "Lag_1",
+      "Lag_2",
+      "Lag_3",
+      "Lag_4",
+      "Lag_5"
+    ],
+    "target_definition": "Future cumulative log return converted to simple return",
+    "prototype": true
+  },
+  "prediction_horizons": {
+    "1D": 1,
+    "5D": 5,
+    "10D": 10,
+    "20D": 20,
+    "1Q": 63,
+    "0.5Y": 126,
+    "1Y": 252
+  },
+  "pca": {
+    "type": "Stock Return PCA",
+    "explained_variance_ratio": [
+      0.134609,
+      0.076505
+    ]
+  },
+  "total_companies": 50,
+  "companies": [
+    {
+      "ticker": "2330",
+      "full_ticker": "2330.TW",
+      "name": "台積電",
+      "industry": "半導體業",
+      "market_cap": 624970.12,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 42.49,
+        "volatility": 28.94
+      },
+      "pca": {
+        "pc1": -0.0037,
+        "pc2": 0.0121
+      },
+      "predictions": {
+        "1D": 0.1532,
+        "5D": 0.9268,
+        "10D": 1.603,
+        "20D": 3.0755,
+        "1Q": 9.1567,
+        "0.5Y": 18.5364,
+        "1Y": 36.1232
+      }
+    },
+    {
+      "ticker": "2454",
+      "full_ticker": "2454.TW",
+      "name": "聯發科",
+      "industry": "半導體業",
+      "market_cap": 70410.99,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 59.42,
+        "volatility": 40.44
+      },
+      "pca": {
+        "pc1": -0.0902,
+        "pc2": 0.1058
+      },
+      "predictions": {
+        "1D": 0.1928,
+        "5D": 1.076,
+        "10D": 2.2586,
+        "20D": 4.2963,
+        "1Q": 10.4311,
+        "0.5Y": 19.3481,
+        "1Y": 37.8925
+      }
+    },
+    {
+      "ticker": "2308",
+      "full_ticker": "2308.TW",
+      "name": "台達電",
+      "industry": "電子零組件業",
+      "market_cap": 55847.17,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 51.47,
+        "volatility": 35.08
+      },
+      "pca": {
+        "pc1": -0.1237,
+        "pc2": 0.0236
+      },
+      "predictions": {
+        "1D": 0.2291,
+        "5D": 0.8544,
+        "10D": 1.6287,
+        "20D": 3.1999,
+        "1Q": 9.8979,
+        "0.5Y": 19.7543,
+        "1Y": 40.7819
+      }
+    },
+    {
+      "ticker": "2317",
+      "full_ticker": "2317.TW",
+      "name": "鴻海",
+      "industry": "其他電子業",
+      "market_cap": 37666.92,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 25.42,
+        "volatility": 30.46
+      },
+      "pca": {
+        "pc1": -0.0005,
+        "pc2": 0.0119
+      },
+      "predictions": {
+        "1D": 0.0627,
+        "5D": 0.5136,
+        "10D": 1.0158,
+        "20D": 1.9968,
+        "1Q": 5.4583,
+        "0.5Y": 10.569,
+        "1Y": 21.86
+      }
+    },
+    {
+      "ticker": "3711",
+      "full_ticker": "3711.TW",
+      "name": "日月光投控",
+      "industry": "半導體業",
+      "market_cap": 27404.61,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 45.24,
+        "volatility": 37.91
+      },
+      "pca": {
+        "pc1": -0.1539,
+        "pc2": 0.1645
+      },
+      "predictions": {
+        "1D": 0.211,
+        "5D": 0.8787,
+        "10D": 1.458,
+        "20D": 2.9672,
+        "1Q": 9.4926,
+        "0.5Y": 17.5401,
+        "1Y": 25.7915
+      }
+    },
+    {
+      "ticker": "2327",
+      "full_ticker": "2327.TW",
+      "name": "國巨",
+      "industry": "電子零組件業",
+      "market_cap": 22234.29,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 50.54,
+        "volatility": 42.78
+      },
+      "pca": {
+        "pc1": -0.1354,
+        "pc2": 0.2731
+      },
+      "predictions": {
+        "1D": 0.3838,
+        "5D": 1.6526,
+        "10D": 3.4627,
+        "20D": 5.2567,
+        "1Q": 6.2241,
+        "0.5Y": 12.3487,
+        "1Y": 19.4111
+      }
+    },
+    {
+      "ticker": "2383",
+      "full_ticker": "2383.TW",
+      "name": "台光電",
+      "industry": "電子零組件業",
+      "market_cap": 20065.98,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 91.1,
+        "volatility": 47.77
+      },
+      "pca": {
+        "pc1": -0.5004,
+        "pc2": -0.2031
+      },
+      "predictions": {
+        "1D": 0.1974,
+        "5D": 1.197,
+        "10D": 2.7469,
+        "20D": 5.4399,
+        "1Q": 16.2131,
+        "0.5Y": 31.5371,
+        "1Y": 62.3537
+      }
+    },
+    {
+      "ticker": "2881",
+      "full_ticker": "2881.TW",
+      "name": "富邦金",
+      "industry": "金融保險業",
+      "market_cap": 19330.16,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 25.67,
+        "volatility": 22.98
+      },
+      "pca": {
+        "pc1": 0.281,
+        "pc2": -0.0279
+      },
+      "predictions": {
+        "1D": 0.0409,
+        "5D": 0.3656,
+        "10D": 1.0361,
+        "20D": 1.6827,
+        "1Q": 5.1576,
+        "0.5Y": 11.2097,
+        "1Y": 22.5765
+      }
+    },
+    {
+      "ticker": "2303",
+      "full_ticker": "2303.TW",
+      "name": "聯電",
+      "industry": "半導體業",
+      "market_cap": 18299.51,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 50.44,
+        "volatility": 36.97
+      },
+      "pca": {
+        "pc1": 0.0483,
+        "pc2": 0.2636
+      },
+      "predictions": {
+        "1D": 0.2243,
+        "5D": 1.4645,
+        "10D": 2.8835,
+        "20D": 3.9073,
+        "1Q": 10.9047,
+        "0.5Y": 21.0113,
+        "1Y": 38.1198
+      }
+    },
+    {
+      "ticker": "2882",
+      "full_ticker": "2882.TW",
+      "name": "國泰金",
+      "industry": "金融保險業",
+      "market_cap": 16942.94,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 18.65,
+        "volatility": 23.57
+      },
+      "pca": {
+        "pc1": 0.2718,
+        "pc2": 0.0005
+      },
+      "predictions": {
+        "1D": 0.0835,
+        "5D": 0.2855,
+        "10D": 0.8898,
+        "20D": 1.1084,
+        "1Q": 3.1151,
+        "0.5Y": 7.4248,
+        "1Y": 14.1738
+      }
+    },
+    {
+      "ticker": "2408",
+      "full_ticker": "2408.TW",
+      "name": "南亞科",
+      "industry": "半導體業",
+      "market_cap": 15853.7,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 39.29,
+        "volatility": 48.2
+      },
+      "pca": {
+        "pc1": -0.1251,
+        "pc2": 0.6331
+      },
+      "predictions": {
+        "1D": 0.3102,
+        "5D": 0.8707,
+        "10D": 3.0237,
+        "20D": 6.8757,
+        "1Q": 15.5568,
+        "0.5Y": 25.6178,
+        "1Y": 12.2574
+      }
+    },
+    {
+      "ticker": "3037",
+      "full_ticker": "3037.TW",
+      "name": "欣興",
+      "industry": "電子零組件業",
+      "market_cap": 15393.33,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 72.65,
+        "volatility": 54.7
+      },
+      "pca": {
+        "pc1": -0.7018,
+        "pc2": 0.4501
+      },
+      "predictions": {
+        "1D": 0.3906,
+        "5D": 0.8201,
+        "10D": 2.1289,
+        "20D": 4.466,
+        "1Q": 16.3316,
+        "0.5Y": 26.2056,
+        "1Y": 36.6295
+      }
+    },
+    {
+      "ticker": "2382",
+      "full_ticker": "2382.TW",
+      "name": "廣達",
+      "industry": "電腦及週邊設備業",
+      "market_cap": 14523.48,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 39.02,
+        "volatility": 34.5
+      },
+      "pca": {
+        "pc1": -0.1155,
+        "pc2": -0.2255
+      },
+      "predictions": {
+        "1D": 0.2115,
+        "5D": 0.6641,
+        "10D": 1.3796,
+        "20D": 2.3544,
+        "1Q": 7.778,
+        "0.5Y": 16.6475,
+        "1Y": 37.5869
+      }
+    },
+    {
+      "ticker": "2891",
+      "full_ticker": "2891.TW",
+      "name": "中信金",
+      "industry": "金融保險業",
+      "market_cap": 14147.69,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 25.09,
+        "volatility": 21.64
+      },
+      "pca": {
+        "pc1": 0.3113,
+        "pc2": -0.0343
+      },
+      "predictions": {
+        "1D": 0.1165,
+        "5D": 0.4311,
+        "10D": 0.904,
+        "20D": 1.5411,
+        "1Q": 4.8543,
+        "0.5Y": 9.9277,
+        "1Y": 20.0892
+      }
+    },
+    {
+      "ticker": "2345",
+      "full_ticker": "2345.TW",
+      "name": "智邦",
+      "industry": "通信網路業",
+      "market_cap": 13663.22,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 59.61,
+        "volatility": 46.78
+      },
+      "pca": {
+        "pc1": -0.3105,
+        "pc2": -0.2379
+      },
+      "predictions": {
+        "1D": 0.1928,
+        "5D": 0.6014,
+        "10D": 1.7164,
+        "20D": 3.7862,
+        "1Q": 11.277,
+        "0.5Y": 21.9157,
+        "1Y": 44.5513
+      }
+    },
+    {
+      "ticker": "7769",
+      "full_ticker": "7769.TW",
+      "name": "鴻勁",
+      "industry": "半導體業",
+      "market_cap": 12550.12,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 468.19,
+        "volatility": 85.66
+      },
+      "pca": {
+        "pc1": 0.1658,
+        "pc2": -0.0612
+      },
+      "predictions": {
+        "1D": 0.6367,
+        "5D": 3.4018,
+        "10D": 6.5833,
+        "20D": 13.8572,
+        "1Q": 51.5399,
+        "0.5Y": 171.8775,
+        "1Y": 653.2434
+      }
+    },
+    {
+      "ticker": "2412",
+      "full_ticker": "2412.TW",
+      "name": "中華電",
+      "industry": "通信網路業",
+      "market_cap": 11170.72,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 7.38,
+        "volatility": 10.84
+      },
+      "pca": {
+        "pc1": 0.3574,
+        "pc2": -0.1004
+      },
+      "predictions": {
+        "1D": 0.0314,
+        "5D": 0.1601,
+        "10D": 0.3093,
+        "20D": 0.6152,
+        "1Q": 1.8714,
+        "0.5Y": 3.6241,
+        "1Y": 7.4003
+      }
+    },
+    {
+      "ticker": "1303",
+      "full_ticker": "1303.TW",
+      "name": "南亞",
+      "industry": "塑膠工業",
+      "market_cap": 11023.84,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 13.7,
+        "volatility": 33.82
+      },
+      "pca": {
+        "pc1": 0.1799,
+        "pc2": 0.2334
+      },
+      "predictions": {
+        "1D": -0.5391,
+        "5D": -1.4417,
+        "10D": -0.2933,
+        "20D": -0.4186,
+        "1Q": 5.278,
+        "0.5Y": 14.109,
+        "1Y": -4.5851
+      }
+    },
+    {
+      "ticker": "2344",
+      "full_ticker": "2344.TW",
+      "name": "華邦電",
+      "industry": "半導體業",
+      "market_cap": 9832.5,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 50.83,
+        "volatility": 48.38
+      },
+      "pca": {
+        "pc1": -0.1541,
+        "pc2": 0.6636
+      },
+      "predictions": {
+        "1D": -0.1466,
+        "5D": 0.948,
+        "10D": 4.1046,
+        "20D": 6.5408,
+        "1Q": 18.6615,
+        "0.5Y": 32.3904,
+        "1Y": 13.644
+      }
+    },
+    {
+      "ticker": "2360",
+      "full_ticker": "2360.TW",
+      "name": "致茂",
+      "industry": "其他電子業",
+      "market_cap": 9823.18,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 55.54,
+        "volatility": 45.56
+      },
+      "pca": {
+        "pc1": -0.2827,
+        "pc2": -0.0294
+      },
+      "predictions": {
+        "1D": 0.203,
+        "5D": 1.0543,
+        "10D": 1.8999,
+        "20D": 3.7925,
+        "1Q": 11.402,
+        "0.5Y": 21.2164,
+        "1Y": 38.736
+      }
+    },
+    {
+      "ticker": "3017",
+      "full_ticker": "3017.TW",
+      "name": "奇鋐",
+      "industry": "電子零組件業",
+      "market_cap": 9421.03,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 92.96,
+        "volatility": 51.71
+      },
+      "pca": {
+        "pc1": -0.6105,
+        "pc2": -0.3855
+      },
+      "predictions": {
+        "1D": 0.321,
+        "5D": 1.5112,
+        "10D": 2.7445,
+        "20D": 5.5306,
+        "1Q": 17.779,
+        "0.5Y": 37.0839,
+        "1Y": 84.9564
+      }
+    },
+    {
+      "ticker": "6669",
+      "full_ticker": "6669.TW",
+      "name": "緯穎",
+      "industry": "電腦及週邊設備業",
+      "market_cap": 9269.33,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 64.64,
+        "volatility": 52.07
+      },
+      "pca": {
+        "pc1": -0.41,
+        "pc2": -0.4998
+      },
+      "predictions": {
+        "1D": 0.1418,
+        "5D": 0.7968,
+        "10D": 1.843,
+        "20D": 3.6281,
+        "1Q": 11.6882,
+        "0.5Y": 23.8337,
+        "1Y": 48.6931
+      }
+    },
+    {
+      "ticker": "2885",
+      "full_ticker": "2885.TW",
+      "name": "元大金",
+      "industry": "金融保險業",
+      "market_cap": 9065.18,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 30.83,
+        "volatility": 22.61
+      },
+      "pca": {
+        "pc1": 0.263,
+        "pc2": 0.0063
+      },
+      "predictions": {
+        "1D": 0.1366,
+        "5D": 0.5056,
+        "10D": 1.049,
+        "20D": 1.9523,
+        "1Q": 5.8736,
+        "0.5Y": 11.0558,
+        "1Y": 20.8149
+      }
+    },
+    {
+      "ticker": "2887",
+      "full_ticker": "2887.TW",
+      "name": "台新新光金",
+      "industry": "金融保險業",
+      "market_cap": 8069.15,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 21.23,
+        "volatility": 20.93
+      },
+      "pca": {
+        "pc1": 0.3005,
+        "pc2": -0.0113
+      },
+      "predictions": {
+        "1D": 0.0856,
+        "5D": 0.1298,
+        "10D": 0.5123,
+        "20D": 0.9957,
+        "1Q": 3.8112,
+        "0.5Y": 7.7738,
+        "1Y": 12.0416
+      }
+    },
+    {
+      "ticker": "2368",
+      "full_ticker": "2368.TW",
+      "name": "金像電",
+      "industry": "電子零組件業",
+      "market_cap": 7060.69,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 91.5,
+        "volatility": 52.3
+      },
+      "pca": {
+        "pc1": -0.6483,
+        "pc2": -0.2771
+      },
+      "predictions": {
+        "1D": 0.2625,
+        "5D": 1.1896,
+        "10D": 2.7723,
+        "20D": 5.3102,
+        "1Q": 17.5639,
+        "0.5Y": 37.7618,
+        "1Y": 87.7766
+      }
+    },
+    {
+      "ticker": "3008",
+      "full_ticker": "3008.TW",
+      "name": "大立光",
+      "industry": "光電業",
+      "market_cap": 6794.96,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 10.59,
+        "volatility": 38.62
+      },
+      "pca": {
+        "pc1": 0.015,
+        "pc2": 0.0558
+      },
+      "predictions": {
+        "1D": -0.2939,
+        "5D": -0.0585,
+        "10D": 0.3601,
+        "20D": 0.9199,
+        "1Q": -3.9036,
+        "0.5Y": -4.8921,
+        "1Y": -6.6131
+      }
+    },
+    {
+      "ticker": "2886",
+      "full_ticker": "2886.TW",
+      "name": "兆豐金",
+      "industry": "金融保險業",
+      "market_cap": 6749.19,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 13.88,
+        "volatility": 16.53
+      },
+      "pca": {
+        "pc1": 0.3579,
+        "pc2": -0.0738
+      },
+      "predictions": {
+        "1D": 0.0703,
+        "5D": 0.2728,
+        "10D": 0.5269,
+        "20D": 0.9403,
+        "1Q": 2.6822,
+        "0.5Y": 5.3491,
+        "1Y": 11.1184
+      }
+    },
+    {
+      "ticker": "2059",
+      "full_ticker": "2059.TW",
+      "name": "川湖",
+      "industry": "電子零組件業",
+      "market_cap": 6542.14,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 56.24,
+        "volatility": 42.18
+      },
+      "pca": {
+        "pc1": -0.2107,
+        "pc2": -0.3194
+      },
+      "predictions": {
+        "1D": 0.2175,
+        "5D": 0.9267,
+        "10D": 1.4147,
+        "20D": 3.5547,
+        "1Q": 10.3254,
+        "0.5Y": 21.2499,
+        "1Y": 48.4168
+      }
+    },
+    {
+      "ticker": "2357",
+      "full_ticker": "2357.TW",
+      "name": "華碩",
+      "industry": "電腦及週邊設備業",
+      "market_cap": 5860.38,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 29.31,
+        "volatility": 30.95
+      },
+      "pca": {
+        "pc1": 0.0749,
+        "pc2": -0.1413
+      },
+      "predictions": {
+        "1D": 0.1021,
+        "5D": 0.4573,
+        "10D": 0.9692,
+        "20D": 1.9198,
+        "1Q": 5.6785,
+        "0.5Y": 11.4722,
+        "1Y": 27.0694
+      }
+    },
+    {
+      "ticker": "3653",
+      "full_ticker": "3653.TW",
+      "name": "健策",
+      "industry": "電子零組件業",
+      "market_cap": 5817.96,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 77.97,
+        "volatility": 54.49
+      },
+      "pca": {
+        "pc1": -0.5448,
+        "pc2": -0.2503
+      },
+      "predictions": {
+        "1D": -0.0829,
+        "5D": 1.2147,
+        "10D": 2.1706,
+        "20D": 4.0382,
+        "1Q": 14.0676,
+        "0.5Y": 30.5867,
+        "1Y": 64.5165
+      }
+    },
+    {
+      "ticker": "2890",
+      "full_ticker": "2890.TW",
+      "name": "永豐金",
+      "industry": "金融保險業",
+      "market_cap": 5767.94,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 27.58,
+        "volatility": 20.46
+      },
+      "pca": {
+        "pc1": 0.308,
+        "pc2": -0.0414
+      },
+      "predictions": {
+        "1D": 0.124,
+        "5D": 0.4085,
+        "10D": 0.7244,
+        "20D": 1.4039,
+        "1Q": 5.1674,
+        "0.5Y": 10.6687,
+        "1Y": 20.4464
+      }
+    },
+    {
+      "ticker": "2884",
+      "full_ticker": "2884.TW",
+      "name": "玉山金",
+      "industry": "金融保險業",
+      "market_cap": 5731.97,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 16.42,
+        "volatility": 18.59
+      },
+      "pca": {
+        "pc1": 0.3265,
+        "pc2": -0.063
+      },
+      "predictions": {
+        "1D": 0.0831,
+        "5D": 0.2727,
+        "10D": 0.516,
+        "20D": 0.9051,
+        "1Q": 2.8744,
+        "0.5Y": 6.2258,
+        "1Y": 12.0897
+      }
+    },
+    {
+      "ticker": "8046",
+      "full_ticker": "8046.TW",
+      "name": "南電",
+      "industry": "電子零組件業",
+      "market_cap": 5647.48,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 61.06,
+        "volatility": 55.76
+      },
+      "pca": {
+        "pc1": -0.6698,
+        "pc2": 0.488
+      },
+      "predictions": {
+        "1D": 0.2546,
+        "5D": 0.7798,
+        "10D": 2.0017,
+        "20D": 4.231,
+        "1Q": 13.2126,
+        "0.5Y": 25.1224,
+        "1Y": 43.4242
+      }
+    },
+    {
+      "ticker": "2880",
+      "full_ticker": "2880.TW",
+      "name": "華南金",
+      "industry": "金融保險業",
+      "market_cap": 5337.16,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 17.97,
+        "volatility": 18.52
+      },
+      "pca": {
+        "pc1": 0.3359,
+        "pc2": -0.0478
+      },
+      "predictions": {
+        "1D": 0.0765,
+        "5D": 0.2255,
+        "10D": 0.4273,
+        "20D": 0.8178,
+        "1Q": 3.1857,
+        "0.5Y": 7.0088,
+        "1Y": 12.8003
+      }
+    },
+    {
+      "ticker": "2883",
+      "full_ticker": "2883.TW",
+      "name": "凱基金",
+      "industry": "金融保險業",
+      "market_cap": 5219.77,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 22.53,
+        "volatility": 24.54
+      },
+      "pca": {
+        "pc1": 0.2703,
+        "pc2": 0.024
+      },
+      "predictions": {
+        "1D": 0.1555,
+        "5D": 0.3772,
+        "10D": 0.8123,
+        "20D": 1.1427,
+        "1Q": 4.1158,
+        "0.5Y": 8.2326,
+        "1Y": 16.0198
+      }
+    },
+    {
+      "ticker": "3481",
+      "full_ticker": "3481.TW",
+      "name": "群創",
+      "industry": "光電業",
+      "market_cap": 5145.04,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 32.86,
+        "volatility": 45.78
+      },
+      "pca": {
+        "pc1": 0.0736,
+        "pc2": 0.4116
+      },
+      "predictions": {
+        "1D": 0.3915,
+        "5D": 2.1906,
+        "10D": 2.5309,
+        "20D": 2.5561,
+        "1Q": 5.0137,
+        "0.5Y": 8.2499,
+        "1Y": 13.5381
+      }
+    },
+    {
+      "ticker": "3231",
+      "full_ticker": "3231.TW",
+      "name": "緯創",
+      "industry": "電腦及週邊設備業",
+      "market_cap": 5136.37,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 41.66,
+        "volatility": 37.09
+      },
+      "pca": {
+        "pc1": -0.1337,
+        "pc2": -0.2412
+      },
+      "predictions": {
+        "1D": 0.0238,
+        "5D": 0.6762,
+        "10D": 1.3825,
+        "20D": 2.9372,
+        "1Q": 8.8245,
+        "0.5Y": 17.587,
+        "1Y": 39.1565
+      }
+    },
+    {
+      "ticker": "6505",
+      "full_ticker": "6505.TW",
+      "name": "台塑化",
+      "industry": "油電燃氣業",
+      "market_cap": 5096.39,
+      "logo": "",
+      "return_risk": {
+        "expected_return": -7.07,
+        "volatility": 29.5
+      },
+      "pca": {
+        "pc1": 0.3384,
+        "pc2": 0.0331
+      },
+      "predictions": {
+        "1D": -0.0819,
+        "5D": -0.2881,
+        "10D": -0.4323,
+        "20D": -0.7238,
+        "1Q": -2.0704,
+        "0.5Y": -4.1904,
+        "1Y": -10.1364
+      }
+    },
+    {
+      "ticker": "2301",
+      "full_ticker": "2301.TW",
+      "name": "光寶科",
+      "industry": "電子零組件業",
+      "market_cap": 4875.41,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 33.61,
+        "volatility": 34.46
+      },
+      "pca": {
+        "pc1": -0.0194,
+        "pc2": -0.0858
+      },
+      "predictions": {
+        "1D": 0.2157,
+        "5D": 0.6374,
+        "10D": 1.1817,
+        "20D": 2.2271,
+        "1Q": 7.0686,
+        "0.5Y": 14.6505,
+        "1Y": 29.6808
+      }
+    },
+    {
+      "ticker": "2892",
+      "full_ticker": "2892.TW",
+      "name": "第一金",
+      "industry": "金融保險業",
+      "market_cap": 4687.71,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 13.35,
+        "volatility": 16.22
+      },
+      "pca": {
+        "pc1": 0.3313,
+        "pc2": -0.0638
+      },
+      "predictions": {
+        "1D": 0.093,
+        "5D": 0.2507,
+        "10D": 0.4566,
+        "20D": 0.7396,
+        "1Q": 2.3351,
+        "0.5Y": 5.0985,
+        "1Y": 10.7665
+      }
+    },
+    {
+      "ticker": "3045",
+      "full_ticker": "3045.TW",
+      "name": "台灣大",
+      "industry": "通信網路業",
+      "market_cap": 4430.88,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 5.92,
+        "volatility": 13.24
+      },
+      "pca": {
+        "pc1": 0.3659,
+        "pc2": -0.1096
+      },
+      "predictions": {
+        "1D": 0.0247,
+        "5D": 0.1098,
+        "10D": 0.2185,
+        "20D": 0.4128,
+        "1Q": 1.187,
+        "0.5Y": 2.0234,
+        "1Y": 3.9928
+      }
+    },
+    {
+      "ticker": "2395",
+      "full_ticker": "2395.TW",
+      "name": "研華",
+      "industry": "電腦及週邊設備業",
+      "market_cap": 4289.17,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 18.35,
+        "volatility": 29.53
+      },
+      "pca": {
+        "pc1": 0.1111,
+        "pc2": -0.0517
+      },
+      "predictions": {
+        "1D": 0.0489,
+        "5D": 0.2601,
+        "10D": 0.6361,
+        "20D": 1.2605,
+        "1Q": 3.2503,
+        "0.5Y": 4.8514,
+        "1Y": 9.3387
+      }
+    },
+    {
+      "ticker": "1216",
+      "full_ticker": "1216.TW",
+      "name": "統一",
+      "industry": "食品工業",
+      "market_cap": 4233.1,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 4.7,
+        "volatility": 17.66
+      },
+      "pca": {
+        "pc1": 0.3508,
+        "pc2": -0.1131
+      },
+      "predictions": {
+        "1D": 0.0133,
+        "5D": 0.0757,
+        "10D": 0.1321,
+        "20D": 0.2982,
+        "1Q": 0.8871,
+        "0.5Y": 1.6364,
+        "1Y": 4.0892
+      }
+    },
+    {
+      "ticker": "2379",
+      "full_ticker": "2379.TW",
+      "name": "瑞昱",
+      "industry": "半導體業",
+      "market_cap": 4222.05,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 33.22,
+        "volatility": 36.87
+      },
+      "pca": {
+        "pc1": -0.0299,
+        "pc2": 0.07
+      },
+      "predictions": {
+        "1D": -0.089,
+        "5D": 0.4138,
+        "10D": 1.2508,
+        "20D": 1.9107,
+        "1Q": 5.1859,
+        "0.5Y": 10.4905,
+        "1Y": 22.6612
+      }
+    },
+    {
+      "ticker": "2603",
+      "full_ticker": "2603.TW",
+      "name": "長榮",
+      "industry": "航運業",
+      "market_cap": 4178.53,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 51.73,
+        "volatility": 47.77
+      },
+      "pca": {
+        "pc1": 0.1392,
+        "pc2": 0.1226
+      },
+      "predictions": {
+        "1D": 0.1677,
+        "5D": 0.7653,
+        "10D": 1.0761,
+        "20D": 2.9559,
+        "1Q": 9.0242,
+        "0.5Y": 20.158,
+        "1Y": 54.1852
+      }
+    },
+    {
+      "ticker": "3665",
+      "full_ticker": "3665.TW",
+      "name": "貿聯-KY",
+      "industry": "電子零組件業",
+      "market_cap": 4096.64,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 40.95,
+        "volatility": 45.21
+      },
+      "pca": {
+        "pc1": -0.2348,
+        "pc2": -0.2504
+      },
+      "predictions": {
+        "1D": 0.3186,
+        "5D": 1.3816,
+        "10D": 2.0704,
+        "20D": 3.4472,
+        "1Q": 10.5283,
+        "0.5Y": 19.712,
+        "1Y": 41.3148
+      }
+    },
+    {
+      "ticker": "6446",
+      "full_ticker": "6446.TW",
+      "name": "藥華藥",
+      "industry": "生技醫療業",
+      "market_cap": 4044.97,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 30.98,
+        "volatility": 49.14
+      },
+      "pca": {
+        "pc1": 0.1598,
+        "pc2": -0.0222
+      },
+      "predictions": {
+        "1D": 0.4001,
+        "5D": 0.9505,
+        "10D": 1.4643,
+        "20D": 3.0662,
+        "1Q": 6.7709,
+        "0.5Y": 13.9269,
+        "1Y": 31.176
+      }
+    },
+    {
+      "ticker": "4904",
+      "full_ticker": "4904.TW",
+      "name": "遠傳",
+      "industry": "通信網路業",
+      "market_cap": 3914.36,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 9.78,
+        "volatility": 16.07
+      },
+      "pca": {
+        "pc1": 0.372,
+        "pc2": -0.1108
+      },
+      "predictions": {
+        "1D": 0.0114,
+        "5D": 0.2007,
+        "10D": 0.3552,
+        "20D": 0.7344,
+        "1Q": 2.2701,
+        "0.5Y": 4.0799,
+        "1Y": 8.3048
+      }
+    },
+    {
+      "ticker": "5880",
+      "full_ticker": "5880.TW",
+      "name": "合庫金",
+      "industry": "金融保險業",
+      "market_cap": 3881.03,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 11.43,
+        "volatility": 15.43
+      },
+      "pca": {
+        "pc1": 0.3212,
+        "pc2": -0.0633
+      },
+      "predictions": {
+        "1D": 0.0542,
+        "5D": 0.1811,
+        "10D": 0.3572,
+        "20D": 0.6386,
+        "1Q": 2.2443,
+        "0.5Y": 4.6299,
+        "1Y": 9.6666
+      }
+    },
+    {
+      "ticker": "2449",
+      "full_ticker": "2449.TW",
+      "name": "京元電子",
+      "industry": "半導體業",
+      "market_cap": 3772.17,
+      "logo": "",
+      "return_risk": {
+        "expected_return": 50.17,
+        "volatility": 40.61
+      },
+      "pca": {
+        "pc1": -0.2216,
+        "pc2": 0.0956
+      },
+      "predictions": {
+        "1D": 0.1287,
+        "5D": 0.7537,
+        "10D": 1.5945,
+        "20D": 3.3747,
+        "1Q": 10.7615,
+        "0.5Y": 22.8347,
+        "1Y": 42.0947
+      }
+    }
+  ]
+}
