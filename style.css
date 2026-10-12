@@ -29,8 +29,48 @@
     right: 10px !important;
 }
 
+:root {
+    --fima-primary: #157878;
+    --fima-primary-dark: #105f5f;
+    --fima-light: #e6f2f1;
+    --fima-border: #dce7e6;
+}
+
+/* 統一字型 */
+body {
+    font-family: "Open Sans", sans-serif !important;
+}
+
+/* 主要按鈕與選取狀態 */
+.bg-blue-600 {
+    background-color: var(--fima-primary) !important;
+}
+
+.text-blue-600 {
+    color: var(--fima-primary) !important;
+}
+
+.hover\:text-blue-600:hover {
+    color: var(--fima-primary) !important;
+}
+
+/* Logo 漸層改成 FIMA 色系 */
+.from-blue-600 {
+    --tw-gradient-from: #157878 var(--tw-gradient-from-position) !important;
+}
+
+.to-emerald-500 {
+    --tw-gradient-to: #2b9690 var(--tw-gradient-to-position) !important;
+}
+
+/* 點擊公司後的醒目效果 */
 .company-highlight {
+    background-color: var(--fima-light) !important;
+    box-shadow: inset 4px 0 0 var(--fima-primary);
+}
+
+/*.company-highlight {
     background-color: #eff6ff !important;
     box-shadow: inset 4px 0 0 #2563eb;
     transition: all 0.3s ease;
-}
+}*/
