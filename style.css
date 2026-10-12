@@ -1,76 +1,82 @@
-/* 自訂捲軸樣式 (客製化輕量質感) */
-.custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
 
-.custom-scrollbar::-webkit-scrollbar-track {
-    background: #f1f5f9;
-    border-radius: 4px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-}
-
-/* 按鈕微互動 hover */
-.horizon-btn {
-    user-select: none;
-}
-
-/* 圖表繪製容器修正 */
-.js-plotly-plot .plotly .modebar {
-    top: 0px !important;
-    right: 10px !important;
-}
+/* ========================================
+   FIMA Dashboard Theme
+   ======================================== */
 
 :root {
     --fima-primary: #157878;
     --fima-primary-dark: #105f5f;
-    --fima-light: #e6f2f1;
+    --fima-primary-light: #e6f2f1;
+
+    --fima-text: #606c71;
+    --fima-heading: #34454b;
+    --fima-muted: #89969b;
+
+    --fima-bg: #f7f9f9;
+    --fima-card: #ffffff;
     --fima-border: #dce7e6;
 }
 
-/* 統一字型 */
+/* 全站基礎樣式 */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 24px;
+}
+
 body {
-    font-family: "Open Sans", sans-serif !important;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", "Helvetica Neue",
+                 Helvetica, Arial, sans-serif !important;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--fima-text);
+    background-color: var(--fima-bg);
 }
 
-/* 主要按鈕與選取狀態 */
-.bg-blue-600 {
-    background-color: var(--fima-primary) !important;
+/* 標題顏色 */
+h1, h2, h3, h4 {
+    font-family: inherit;
+    color: var(--fima-heading);
 }
 
-.text-blue-600 {
-    color: var(--fima-primary) !important;
+/* 卡片邊框：保留原本白色背景 */
+.rounded-xl,
+.rounded-2xl {
+    border-color: var(--fima-border);
 }
 
-.hover\:text-blue-600:hover {
-    color: var(--fima-primary) !important;
+/* 淡化卡片陰影，維持簡潔感 */
+.shadow-lg,
+.shadow-xl {
+    box-shadow: 0 4px 14px rgba(30, 60, 60, 0.06);
 }
 
-/* Logo 漸層改成 FIMA 色系 */
-.from-blue-600 {
-    --tw-gradient-from: #157878 var(--tw-gradient-from-position) !important;
+/* 表格視覺 */
+#company-table-body tr {
+    transition: background-color 0.25s ease;
 }
 
-.to-emerald-500 {
-    --tw-gradient-to: #2b9690 var(--tw-gradient-to-position) !important;
-}
-
-/* 點擊公司後的醒目效果 */
+/* 點擊股票卡片後的表格列 */
 .company-highlight {
-    background-color: var(--fima-light) !important;
+    background-color: var(--fima-primary-light) !important;
     box-shadow: inset 4px 0 0 var(--fima-primary);
+    transition: background-color 0.25s ease;
 }
 
-/*.company-highlight {
-    background-color: #eff6ff !important;
-    box-shadow: inset 4px 0 0 #2563eb;
-    transition: all 0.3s ease;
-}*/
+/* 捲軸配色與整體風格一致 */
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f5f5;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #c4d5d4;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #9bb9b7;
+}
